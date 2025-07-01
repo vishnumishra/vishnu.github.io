@@ -24,9 +24,42 @@
         1.BASIC
 ========================*/
 
+:root {
+    /* Light Theme (Default) */
+    --bg-color: #fff;
+    --text-color: #000;
+    --text-muted: #777;
+    --border-color: #e7e7e7;
+    --nav-text-color: #fff;
+    --nav-text-dark-color: #000;
+    --card-bg: #fff;
+    --progress-bg: #f1f1f1;
+    --section-bg: #fff;
+    --section-bg-light: #f5f5f5;
+    --overlay-bg: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    --bg-color: #121212;
+    --text-color: #f5f5f5;
+    --text-muted: #aaa;
+    --border-color: #444;
+    --nav-text-color: #fff;
+    --nav-text-dark-color: #f5f5f5;
+    --card-bg: #1e1e1e;
+    --progress-bg: #333;
+    --section-bg: #121212;
+    --section-bg-light: #1e1e1e;
+    --overlay-bg: rgba(0, 0, 0, 0.6);
+}
+
 body {
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -158,27 +191,27 @@ button:focus {
     padding-top: 80px;
     padding-bottom: 80px;
     position: relative;
-    background-color: #fff;
+    background-color: var(--section-bg);
 }
 
 .bg-dark {
-    background-color: #000;
+    background-color: var(--text-color);
 }
 
 .bg-custom{
-    background-color: #000;
+    background-color: var(--text-color);
 }
 
 .text-dark {
-    color: #000 !important;
+    color: var(--text-color) !important;
 }
 
 .text-muted {
-    color: #777;
+    color: var(--text-muted);
 }
 
 .text-custom {
-    color: #000 !important;
+    color: var(--text-color) !important;
 }
 
 .h-100vh {
@@ -203,7 +236,7 @@ button:focus {
     margin-top: -7px;
     vertical-align: middle;
     content: "";
-    background-color: #d0d0d0;
+    background-color: var(--border-color);
     width: 30px;
     height: 1px;
 }
@@ -224,7 +257,7 @@ button:focus {
 }
 
 .bg-overlay {
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--overlay-bg);
     position: absolute;
     top: 0;
     right: 0;
@@ -290,9 +323,9 @@ button:focus {
 }
 
 .btn-custom {
-    background-color: #000;
-    border: 2px solid #000;
-    color: #fff;
+    background-color: var(--text-color);
+    border: 2px solid var(--text-color);
+    color: var(--bg-color);
     transition: all 0.5s;
     font-size: 15px;
     text-transform: capitalize;
@@ -307,9 +340,9 @@ button:focus {
 .btn-custom:focus,
 .btn-custom:hover,
 .open>.dropdown-toggle.btn-custom {
-    background-color: #fff;
-    border-color: #000;
-    color: #000;
+    background-color: var(--bg-color);
+    border-color: var(--text-color);
+    color: var(--text-color);
 }
 
 /*==========================
@@ -327,7 +360,7 @@ button:focus {
 }
 
 .custom-nav.stickyadd {
-    background-color: #fff;
+    background-color: var(--bg-color);
     padding: 8px 0;
     box-shadow: 0px 0px 18px 1px rgba(0, 0, 0, 0.1);
 }
@@ -381,7 +414,7 @@ button:focus {
 }
 
 .custom-nav.stickyadd .navbar-nav li a {
-    color: #000;
+    color: var(--nav-text-dark-color);
 }
 
 .navbar-toggle {
@@ -592,7 +625,8 @@ button:focus {
 ============================*/
 
 .lan_box_ser {
-    border: 1px dotted #e7e7e7;
+    border: 1px dotted var(--border-color);
+    background-color: var(--card-bg);
 }
 
 .lan_box_ser .ser_icon i {
@@ -928,10 +962,13 @@ button:focus {
     box-shadow: none !important;
     height: 44px;
     border-radius: 0px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
 }
 
 .contact_form .form-control:focus {
-    border-color: #000;
+    border-color: var(--text-color);
 }
 
 .contact_form textarea.form-control {
@@ -1081,4 +1118,17 @@ button:focus {
         text-align: center !important;
         justify-content: space-around !important;
     }
+}
+
+/*==========================
+        17.THEME TOGGLE
+============================*/
+
+#theme-toggle {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle i {
+    font-size: 20px;
 }
